@@ -8,8 +8,9 @@ El objetivo principal es estructurar y optimizar visualmente una tienda online d
 
 ## 🚀 Enlaces del Proyecto
 
-* **Sitio Web Desplegado (GitHub Pages):** [Reemplazar con tu enlace de GitHub Pages]
-* **Repositorio en GitHub:** https://github.com/Colivaressandia/DesarrolloFrontend1/edit/main/Semana_2
+* **Sitio Web Desplegado (GitHub Pages):** https://colivaressandia.github.io/DesarrolloFrontend1/Semana_2/
+* **Repositorio en GitHub:** https://github.com/Colivaressandia/DesarrolloFrontend1/tree/main/Semana_2
+
 ---
 
 ## 🛠️ Tecnologías y Conceptos Aplicados
