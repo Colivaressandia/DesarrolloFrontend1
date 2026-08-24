@@ -1,0 +1,232 @@
+/* ==========================================================================
+   1. VARIABLES GLOBALES (Custom Properties en :root)
+   ========================================================================== */
+:root {
+    --color-fondo-principal: #0f172a;    /* Azul marino oscuro para ambientación gamer */
+    --color-fondo-tarjeta: #1e293b;      /* Tono pizarra para cajas y secciones */
+    --color-texto-principal: #f8fafc;    /* Blanco suave de alto contraste y legibilidad */
+    --color-texto-secundario: #94a3b8;   /* Gris claro para descripciones */
+    --color-acento: #38bdf8;             /* Celeste cian para resaltar elementos y bordes */
+    --color-precio: #4ade80;             /* Verde esmeralda para precios destacados */
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ==========================================================================
+   2. RESET Y MODELO DE CAJAS (Box Model)
+   ========================================================================== */
+html {
+    scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en el menú */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box; /* Control total del tamaño de cajas sin desbordes */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto-principal);
+    line-height: 1.6;
+}
+
+/* Compensación de desplazamiento para que la barra fija no tape los títulos */
+#productos, #contacto {
+    scroll-margin-top: 70px;
+}
+
+/* ==========================================================================
+   3. ENCABEZADO Y NAVEGACIÓN
+   ========================================================================== */
+#inicio {
+    background-color: var(--color-fondo-tarjeta);
+    padding: 30px 20px;
+    text-align: center;
+}
+
+#inicio h1 {
+    font-size: 2.2em;
+    color: var(--color-acento);
+    margin-bottom: 10px;
+}
+
+#inicio p {
+    color: var(--color-texto-secundario);
+    font-size: 1.1em;
+}
+
+/* Barra de navegación que se mantiene fija arriba */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: var(--color-fondo-tarjeta);
+    padding: 12px 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navbar a {
+    color: var(--color-texto-principal);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+/* Pseudo-clase :hover para interactividad */
+.navbar a:hover {
+    background-color: var(--color-acento);
+    color: var(--color-fondo-principal);
+    border-color: var(--color-acento);
+}
+
+/* ==========================================================================
+   4. CONTENEDOR PRINCIPAL Y PRODUCTOS
+   ========================================================================== */
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+#productos h2 {
+    color: var(--color-acento);
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#productos > p {
+    text-align: center;
+    color: var(--color-texto-secundario);
+    margin-bottom: 30px;
+}
+
+/* Lista de productos distribuidos */
+.product-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+/* Tarjeta individual de producto (Aplicación de Modelo de Cajas) */
+.product-card {
+    background-color: var(--color-fondo-tarjeta);
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 20px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-acento);
+}
+
+.product-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    color: var(--color-texto-principal);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #0b1120;
+    padding: 10px;
+}
+
+.product-card p {
+    color: var(--color-texto-secundario);
+    font-size: 0.95em;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 1.2em;
+    color: var(--color-precio) !important;
+}
+
+/* Selector avanzado :nth-child() para destacar la tarjeta central */
+.product-card:nth-child(2) {
+    border: 2px solid var(--color-acento);
+}
+
+/* Selector de atributo para enlaces externos */
+a[target="_blank"] {
+    color: var(--color-acento);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.social-text {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.05em;
+}
+
+/* ==========================================================================
+   5. PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
+#contacto {
+    background-color: #090d16;
+    border-top: 1px solid #1e293b;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+#contacto h2 {
+    color: var(--color-acento);
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+#contacto p {
+    color: var(--color-texto-secundario);
+    margin: 6px 0;
+    font-size: 0.95em;
+}
+
+.copyright {
+    margin-top: 20px !important;
+    font-size: 0.85em !important;
+    color: #64748b !important;
+}
+
+/* ==========================================================================
+   6. RESPONSIVIDAD (Media Queries)
+   ========================================================================== */
+@media (max-width: 768px) {
+    #inicio h1 {
+        font-size: 1.8em;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .product-card {
+        width: 100%;
+        max-width: 320px;
+    }
+}
