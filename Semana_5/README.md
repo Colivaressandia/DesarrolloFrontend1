@@ -111,7 +111,7 @@ Para asegurar que las peticiones asíncronas de la Fetch API funcionen sin bloqu
 
 El proyecto se encuentra desplegado y disponible en línea a través de:
 
-👉 **[Ver sitio en GitHub Pages](https://colivaressandia.github.io/Semana_5/)**
+👉 [**[Ver sitio en GitHub Pages](https://colivaressandia.github.io/Semana_5/)**](https://colivaressandia.github.io/DesarrolloFrontend1/Semana_5/Index.html)
 
 ---
 
@@ -134,9 +134,11 @@ Probado y verificado en los siguientes navegadores modernos:
 <img width="1906" height="1018" alt="01-catalogo-reposo" src="https://github.com/user-attachments/assets/c737bd6a-0e76-46af-8993-654300b97792" />
 
 
+
 ### 2. Catálogo con efecto hover activo (Evento mouseover)
 
 <img width="1875" height="1004" alt="02-catalogo-hover" src="https://github.com/user-attachments/assets/ae7983ef-602d-445d-b8ca-f244edcdab38" />
+
 
 
 ### 3. Carrito interactivo con productos agregados (Manipulación del DOM)
@@ -144,9 +146,11 @@ Probado y verificado en los siguientes navegadores modernos:
 <img width="1910" height="1016" alt="03-carrito-interactivo" src="https://github.com/user-attachments/assets/b9a60e9a-0f64-40ba-aff9-1f1d0b842684" />
 
 
+
 ### 4. Ofertas Gamer cargadas mediante Fetch API
 
 <img width="1916" height="1023" alt="04-fetch-api-ofertas" src="https://github.com/user-attachments/assets/07f9dda6-06c8-411b-b364-8aad5b83125c" />
+
 
 
 ### 5. Validación dinámica del formulario de suscripción (Evento submit)
@@ -154,14 +158,17 @@ Probado y verificado en los siguientes navegadores modernos:
 <img width="1917" height="1007" alt="05-formulario-validacion" src="https://github.com/user-attachments/assets/2726bf4b-3fac-4b91-88b3-0778802749c0" />
 
 
+
 ### 6. Verificación de compatibilidad en Google Chrome
 
 <img width="1917" height="1031" alt="06-navegador-chrome" src="https://github.com/user-attachments/assets/6501c96b-e5f2-49dc-82c8-f8b4da71a9e8" />
 
 
+
 ### 7. Verificación de compatibilidad en Microsoft Edge
 
 <img width="1917" height="1007" alt="07-navegador-edge" src="https://github.com/user-attachments/assets/479b5f7c-0a94-45b4-8767-3f665b4690f8" />
+
 
 
 ### 8. Verificación de compatibilidad en Mozilla Firefox
