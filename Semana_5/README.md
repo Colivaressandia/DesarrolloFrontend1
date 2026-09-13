@@ -68,33 +68,30 @@ Ambas integraciones incluyen:
 | CheapShark API | Datos de ofertas de videojuegos |
 | PokéAPI | Datos y recursos visuales de Pokémon |
 
----
-
 ## 📁 Estructura del proyecto
+
+```text
 Semana_5/
 ├── Index.html
 ├── README.md
 ├── css/
-│ └── styles.css
+│   └── styles.css
 ├── js/
-│ └── main.js
+│   └── main.js
 └── img/
-├── banner1.jpg
-├── banner2.jpg
-├── banner3.jpg
-├── switch2.png
-├── ps5pro.png
-├── xbox.png
-└── capturas/
-├── catalogo-hover.png
-├── ofertas-gamer.png
-├── pokedex.png
-├── carrito.png
-└── formulario.png
-
-text
-
----
+    ├── banner1.jpg
+    ├── banner2.jpg
+    ├── banner3.jpg
+    ├── switch2.png
+    ├── ps5pro.png
+    ├── xbox.png
+    └── capturas/
+        ├── catalogo-hover.png
+        ├── ofertas-gamer.png
+        ├── pokedex.png
+        ├── carrito.png
+        └── formulario.png
+```
 
 ## 🚀 Cómo ejecutar el proyecto
 
