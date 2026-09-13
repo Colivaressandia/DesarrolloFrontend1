@@ -85,12 +85,12 @@ Semana_5/
     ├── switch2.png
     ├── ps5pro.png
     ├── xbox.png
-    └── capturas/
-        ├── catalogo-hover.png
-        ├── ofertas-gamer.png
-        ├── pokedex.png
-        ├── carrito.png
-        └── formulario.png
+└── capturas/
+    ├── catalogo-hover.png
+    ├── ofertas-gamer.png
+    ├── pokedex.png
+    ├── carrito.png
+    └── formulario.png
 ```
 
 ## 🚀 Cómo ejecutar el proyecto
