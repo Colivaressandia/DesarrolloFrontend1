@@ -111,7 +111,7 @@ Para asegurar que las peticiones asíncronas de la Fetch API funcionen sin bloqu
 
 El proyecto se encuentra desplegado y disponible en línea a través de:
 
-👉 [**[Ver sitio en GitHub Pages](https://colivaressandia.github.io/Semana_5/)**](https://colivaressandia.github.io/DesarrolloFrontend1/Semana_5/Index.html)
+👉 https://colivaressandia.github.io/Semana_5/
 
 ---
 
