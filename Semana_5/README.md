@@ -86,11 +86,14 @@ Semana_5/
     ├── ps5pro.png
     ├── xbox.png
 └── capturas/
-    ├── catalogo-hover.png
-    ├── ofertas-gamer.png
-    ├── pokedex.png
-    ├── carrito.png
-    └── formulario.png
+    ├── 01-catalogo-reposo.png
+    ├── 02-catalogo-hover.png
+    ├── 03-carrito-interactivo.png
+    ├── 04-fetch-api-ofertas.png
+    └── 05-formulario-validacion.png
+    └── 06-navegador-chrome.png
+    └── 07-navegador-edge.png
+    └── 08-navegador-firefox.png
 ```
 
 ## 🚀 Cómo ejecutar el proyecto
@@ -126,25 +129,45 @@ Probado y verificado en los siguientes navegadores modernos:
 
 ## 📸 Capturas de pantalla
 
-### 1. Catálogo con efecto hover activo
+### 1. Catálogo en estado inicial (en reposo)
 
-![Catálogo con hover](img/capturas/catalogo-hover.png)
+<img width="1906" height="1018" alt="01-catalogo-reposo" src="https://github.com/user-attachments/assets/c737bd6a-0e76-46af-8993-654300b97792" />
 
-### 2. Ofertas Gamer cargadas con Fetch API
 
-![Ofertas Gamer](img/capturas/ofertas-gamer.png)
+### 2. Catálogo con efecto hover activo (Evento mouseover)
 
-### 3. Pokédex cargada con Fetch API
+<img width="1875" height="1004" alt="02-catalogo-hover" src="https://github.com/user-attachments/assets/ae7983ef-602d-445d-b8ca-f244edcdab38" />
 
-![Pokédex](img/capturas/pokedex.png)
 
-### 4. Carrito interactivo con productos agregados
+### 3. Carrito interactivo con productos agregados (Manipulación del DOM)
 
-![Carrito interactivo](img/capturas/carrito.png)
+<img width="1910" height="1016" alt="03-carrito-interactivo" src="https://github.com/user-attachments/assets/b9a60e9a-0f64-40ba-aff9-1f1d0b842684" />
 
-### 5. Validación del formulario de suscripción
 
-![Formulario](img/capturas/formulario.png)
+### 4. Ofertas Gamer cargadas mediante Fetch API
+
+<img width="1916" height="1023" alt="04-fetch-api-ofertas" src="https://github.com/user-attachments/assets/07f9dda6-06c8-411b-b364-8aad5b83125c" />
+
+
+### 5. Validación dinámica del formulario de suscripción (Evento submit)
+
+<img width="1917" height="1007" alt="05-formulario-validacion" src="https://github.com/user-attachments/assets/2726bf4b-3fac-4b91-88b3-0778802749c0" />
+
+
+### 6. Verificación de compatibilidad en Google Chrome
+
+<img width="1917" height="1031" alt="06-navegador-chrome" src="https://github.com/user-attachments/assets/6501c96b-e5f2-49dc-82c8-f8b4da71a9e8" />
+
+
+### 7. Verificación de compatibilidad en Microsoft Edge
+
+<img width="1917" height="1007" alt="07-navegador-edge" src="https://github.com/user-attachments/assets/479b5f7c-0a94-45b4-8767-3f665b4690f8" />
+
+
+### 8. Verificación de compatibilidad en Mozilla Firefox
+
+<img width="1917" height="1027" alt="08-navegador-firefox" src="https://github.com/user-attachments/assets/f736fb05-86ce-439b-821c-260a6ae7f75b" />
+
 
 ---
 
