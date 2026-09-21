@@ -19,8 +19,8 @@ El objetivo de esta actividad es **optimizar la lógica y el rendimiento** de un
 
 | Recurso | URL |
 |---|---|
-| 📦 Repositorio GitHub | [https://github.com/[tu-usuario]/[tu-repo] |](https://github.com/Colivaressandia/DesarrolloFrontend1/tree/main/Semana_6/Cristian_Olivares_PFY2201_Optimizaci%C3%B3n_Semana6)
-| 🌐 Despliegue público (gh-pages) | [https://[tu-usuario].github.io/[tu-repo]/ |](https://colivaressandia.github.io/DesarrolloFrontend1/Semana_6/Cristian_Olivares_PFY2201_Optimización_Semana6/)
+| 📦 Repositorio GitHub | (https://github.com/Colivaressandia/DesarrolloFrontend1/tree/main/Semana_6/Cristian_Olivares_PFY2201_Optimizaci%C3%B3n_Semana6)
+| 🌐 Despliegue público (gh-pages) |(https://colivaressandia.github.io/DesarrolloFrontend1/Semana_6/Cristian_Olivares_PFY2201_Optimización_Semana6/)
 
 ---
 
