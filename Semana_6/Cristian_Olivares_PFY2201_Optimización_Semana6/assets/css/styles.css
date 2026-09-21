@@ -1,0 +1,365 @@
+/* =========================================================================
+   styles.css — Memory Card Games
+   Semana 6 — Desarrollo Frontend I (PFY2201)
+   -------------------------------------------------------------------------
+   ÍNDICE:
+     1. Reset y base
+     2. Navbar y dropdown de categorías
+     3. Carrusel
+     4. Tarjetas de producto
+     5. Efectos interactivos por JavaScript
+     6. Carrito de compras
+     7. Formulario de contacto
+     8. Footer
+     9. Animaciones
+    10. Responsive
+   ========================================================================= */
+
+/* =========================================================================
+   1. RESET Y BASE
+   -------------------------------------------------------------------------
+   Nota: NO usamos overflow-x: hidden/clip en html/body porque rompe el
+   position: sticky del navbar. El desborde horizontal se previene evitando
+   que los elementos crezcan más que su contenedor (navbar-expand-xl +
+   input-group + max-width en imágenes).
+   ========================================================================= */
+
+html, body {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0d1117;
+  color: #e6edf3;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  scroll-behavior: smooth;
+  /* Compensa la altura del navbar sticky al navegar por anclas */
+  scroll-padding-top: 80px;
+}
+
+code {
+  color: #0dcaf0;
+  background-color: rgba(13, 202, 240, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 100%;
+}
+
+/* =========================================================================
+   2. NAVBAR Y DROPDOWN DE CATEGORÍAS
+   ========================================================================= */
+
+.navbar .nav-link {
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  font-size: 0.95rem;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #0dcaf0 !important;
+  transform: translateY(-1px);
+}
+
+.navbar-brand {
+  white-space: nowrap;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  transition: text-shadow 0.3s ease;
+}
+
+.navbar-brand:hover {
+  text-shadow: 0 0 12px rgba(13, 202, 240, 0.8);
+}
+
+/* Formulario de búsqueda: ancho natural en desktop */
+#form-busqueda {
+  width: auto;
+  max-width: 100%;
+}
+
+#form-busqueda input {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  color: #e6edf3;
+}
+
+#form-busqueda input:focus {
+  background-color: #161b22;
+  border-color: #0dcaf0;
+  color: #e6edf3;
+  box-shadow: 0 0 0 0.2rem rgba(13, 202, 240, 0.25);
+}
+
+#form-busqueda input::placeholder {
+  color: #8b949e;
+}
+
+/* Botón del buscador (dentro del input-group) */
+#form-busqueda .btn {
+  border: 1px solid #0dcaf0;
+}
+
+/* Dropdown de categorías con tema oscuro */
+.dropdown-menu-dark {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  max-width: calc(100vw - 2rem);
+}
+
+.dropdown-menu-dark .dropdown-item {
+  color: #e6edf3;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu-dark .dropdown-item:hover,
+.dropdown-menu-dark .dropdown-item:focus {
+  background-color: #0dcaf0;
+  color: #0d1117;
+  font-weight: 600;
+}
+
+.dropdown-menu-dark .dropdown-divider {
+  border-color: #30363d;
+}
+
+/* =========================================================================
+   3. CARRUSEL
+   ========================================================================= */
+
+#carouselBanners,
+#carouselBanners .carousel-inner,
+#carouselBanners .carousel-item {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+#carouselBanners .carousel-item img {
+  height: 380px;
+  object-fit: cover;
+  width: 100%;
+}
+
+#carouselBanners .carousel-control-prev,
+#carouselBanners .carousel-control-next {
+  opacity: 0.75;
+  transition: opacity 0.25s ease;
+}
+
+#carouselBanners .carousel-control-prev:hover,
+#carouselBanners .carousel-control-next:hover {
+  opacity: 1;
+}
+
+/* =========================================================================
+   4. TARJETAS DE PRODUCTO
+   ========================================================================= */
+
+.tarjeta-producto {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.tarjeta-producto:hover {
+  transform: translateY(-6px);
+  border-color: #0dcaf0;
+  box-shadow: 0 10px 25px rgba(13, 202, 240, 0.25);
+}
+
+.tarjeta-producto .card-img-top {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.tarjeta-producto:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.nombre-producto {
+  color: #e6edf3;
+  font-weight: 600;
+}
+
+.precio-producto {
+  letter-spacing: 0.5px;
+}
+
+.btn-comprar {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-comprar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(13, 202, 240, 0.5);
+}
+
+.btn-comprar:active {
+  transform: scale(0.97);
+}
+
+/* =========================================================================
+   5. EFECTOS INTERACTIVOS POR JAVASCRIPT (mouseover / mouseout)
+   ========================================================================= */
+
+.tarjeta-producto.card-hover {
+  transform: translateY(-6px);
+  border-color: #0dcaf0;
+  box-shadow: 0 10px 25px rgba(13, 202, 240, 0.35);
+}
+
+.tarjeta-producto.card-hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* =========================================================================
+   6. CARRITO DE COMPRAS
+   ========================================================================= */
+
+#lista-carrito .list-group-item {
+  background-color: #161b22;
+  border-color: #30363d;
+  transition: background-color 0.25s ease;
+}
+
+#lista-carrito .list-group-item:hover {
+  background-color: #1f2630;
+}
+
+#lista-carrito .btn-outline-danger {
+  border-color: #dc3545;
+  color: #dc3545;
+  transition: all 0.2s ease;
+}
+
+#lista-carrito .btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+/* =========================================================================
+   7. FORMULARIO DE CONTACTO
+   ========================================================================= */
+
+#formulario-contacto .form-control {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  color: #e6edf3;
+}
+
+#formulario-contacto .form-control:focus {
+  background-color: #161b22;
+  border-color: #0dcaf0;
+  color: #e6edf3;
+  box-shadow: 0 0 0 0.2rem rgba(13, 202, 240, 0.25);
+}
+
+#formulario-contacto .form-control::placeholder {
+  color: #8b949e;
+}
+
+#formulario-contacto .form-label {
+  color: #c9d1d9;
+  font-weight: 500;
+}
+
+#mensaje-formulario {
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+}
+
+/* =========================================================================
+   8. FOOTER
+   ========================================================================= */
+
+footer {
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #e6edf3;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+footer a:hover {
+  color: #0dcaf0;
+}
+
+/* =========================================================================
+   9. ANIMACIONES
+   ========================================================================= */
+
+.badge-pulse {
+  animation: pulse 0.4s ease;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    background-color: #0dcaf0;
+  }
+  50% {
+    transform: scale(1.6);
+    background-color: #198754;
+    color: #fff !important;
+  }
+  100% {
+    transform: scale(1);
+    background-color: #0dcaf0;
+  }
+}
+
+/* =========================================================================
+   10. RESPONSIVE
+   ========================================================================= */
+
+/* Tablets y móviles: reducimos altura del carrusel */
+@media (max-width: 991.98px) {
+  #carouselBanners .carousel-item img {
+    height: 280px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 575.98px) {
+  #carouselBanners .carousel-item img {
+    height: 200px;
+  }
+
+  .tarjeta-producto .card-img-top {
+    height: 180px;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   FIX: Buscador dentro del menú hamburguesa
+   ------------------------------------------------------------------------- */
+@media (max-width: 1199.98px) {
+  #form-busqueda {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  #form-busqueda .input-group {
+    width: 100% !important;
+  }
+}

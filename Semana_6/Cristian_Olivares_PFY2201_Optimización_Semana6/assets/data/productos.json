@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "nombre": "Nintendo Switch 2",
+    "precio": 449990,
+    "categoria": "Consolas",
+    "descripcion": "Pantalla OLED optimizada, arquitectura gráfica renovada y retrocompatibilidad total.",
+    "imagen": "assets/img/switch2.png",
+    "badge": "Oferta"
+  },
+  {
+    "id": 2,
+    "nombre": "PlayStation 5 Pro",
+    "precio": 899990,
+    "categoria": "Consolas",
+    "descripcion": "Trazado de rayos avanzado, renderizado 4K ultra fluido y almacenamiento de 2TB.",
+    "imagen": "assets/img/ps5pro.png",
+    "badge": "Más Vendido"
+  },
+  {
+    "id": 3,
+    "nombre": "Xbox Series X 2TB",
+    "precio": 799990,
+    "categoria": "Consolas",
+    "descripcion": "Edición Galaxy Black con almacenamiento masivo, Quick Resume y resolución 4K nativa.",
+    "imagen": "assets/img/xbox.png",
+    "badge": "Nuevo"
+  },
+  {
+    "id": 4,
+    "nombre": "Teclado Mecánico RGB Pro",
+    "precio": 89990,
+    "categoria": "Accesorios",
+    "descripcion": "Switches hot-swap, retroiluminación RGB por tecla y estructura de aluminio resistente.",
+    "imagen": "assets/img/teclado.png",
+    "badge": "Gamer"
+  },
+  {
+    "id": 5,
+    "nombre": "Mouse Inalámbrico 8K",
+    "precio": 59990,
+    "categoria": "Accesorios",
+    "descripcion": "Sensor óptico de 26.000 DPI, 8000 Hz de polling y batería de hasta 90 horas.",
+    "imagen": "assets/img/mouse.png",
+    "badge": "Pro"
+  },
+  {
+    "id": 6,
+    "nombre": "Audífonos 7.1 Surround",
+    "precio": 74990,
+    "categoria": "Audio",
+    "descripcion": "Sonido envolvente 7.1, micrófono con cancelación de ruido y almohadillas de memory foam.",
+    "imagen": "assets/img/audifonos.png",
+    "badge": "Nuevo"
+  }
+]
