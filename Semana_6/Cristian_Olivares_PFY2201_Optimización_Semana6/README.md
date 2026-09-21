@@ -10,9 +10,8 @@ El objetivo de esta actividad es **optimizar la lógica y el rendimiento** de un
 
 - **Nombre:** Cristián [Apellido]
 - **Asignatura:** Desarrollo Frontend I (PFY2201)
-- **Sección:** [Tu sección]
-- **Docente:** [Nombre del docente]
-- **Fecha de entrega:** Septiembre 2026
+- **Docente:** Enrique Urra
+- **Fecha de entrega:21 Septiembre 2026
 
 ---
 
@@ -20,8 +19,8 @@ El objetivo de esta actividad es **optimizar la lógica y el rendimiento** de un
 
 | Recurso | URL |
 |---|---|
-| 📦 Repositorio GitHub | https://github.com/[tu-usuario]/[tu-repo] |
-| 🌐 Despliegue público (gh-pages) | https://[tu-usuario].github.io/[tu-repo]/ |
+| 📦 Repositorio GitHub | [https://github.com/[tu-usuario]/[tu-repo] |](https://github.com/Colivaressandia/DesarrolloFrontend1/tree/main/Semana_6/Cristian_Olivares_PFY2201_Optimizaci%C3%B3n_Semana6)
+| 🌐 Despliegue público (gh-pages) | [https://[tu-usuario].github.io/[tu-repo]/ |](https://colivaressandia.github.io/DesarrolloFrontend1/Semana_6/Cristian_Olivares_PFY2201_Optimización_Semana6/)
 
 ---
 
