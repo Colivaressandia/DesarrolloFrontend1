@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!-- =========================================================================
+     index.html — Memory Card Games
+     Semana 7 — Desarrollo Frontend I (PFY2201)
+     -------------------------------------------------------------------------
+     Este es el ÚNICO archivo HTML del proyecto React.
+     
+     IMPORTANTE:
+       • Aquí NO va navbar, carrusel, catálogo, carrito ni footer.
+         Todo eso ahora son COMPONENTES en /src/components/*.jsx
+       • El <div id="root"> es el punto de montaje donde React "inyecta"
+         toda la aplicación (definida en src/App.jsx).
+       • El <script type="module" src="/src/main.jsx"> carga el entry point
+         de React. Vite lo transforma automáticamente en desarrollo y build.
+     
+     ESTRUCTURA DEL PROYECTO:
+       index.html                 ← este archivo (raíz)
+       src/
+         ├── main.jsx             ← punto de entrada React (monta <App />)
+         ├── App.jsx              ← componente raíz (estado del carrito)
+         ├── styles.css           ← estilos globales tema oscuro
+         ├── components/
+         │   ├── Navbar.jsx
+         │   ├── ProductList.jsx
+         │   ├── ProductCard.jsx
+         │   ├── Cart.jsx
+         │   └── CartItem.jsx
+         └── data/
+             └── productos.js     ← catálogo (antes productos.json)
+       public/
+         ├── favicon.ico
+         ├── favicon-32x32.png
+         └── img/                 ← imágenes de productos
+             ├── switch2.png
+             ├── ps5pro.png
+             ├── xbox.png
+             ├── teclado.png
+             ├── mouse.png
+             └── audifonos.png
+     ========================================================================= -->
+<html lang="es">
+  <head>
+    <!-- Codificación UTF-8 para tildes, ñ y emojis -->
+    <meta charset="UTF-8" />
+
+    <!-- Viewport responsivo: esencial para móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Descripción para SEO y accesibilidad -->
+    <meta
+      name="description"
+      content="Memory Card Games — eCommerce de consolas, accesorios y audio gamer. Actividad Semana 7 PFY2201."
+    />
+
+    <!-- Color de la barra del navegador en móviles (tema oscuro) -->
+    <meta name="theme-color" content="#0d1117" />
+
+    <!-- Título de la pestaña -->
+    <title>Memory Card Games — React S7</title>
+
+    <!-- =====================================================================
+         FAVICONS
+         Vite sirve automáticamente los archivos de /public en la raíz (/).
+         Por eso las rutas son "/favicon.ico" y no "public/favicon.ico".
+         ===================================================================== -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+
+    <!-- =====================================================================
+         NOTA SOBRE BOOTSTRAP Y CSS
+         ---------------------------------------------------------------------
+         En la versión vanilla cargabas Bootstrap 5 vía CDN aquí.
+         En React tenemos DOS opciones:
+
+         OPCIÓN A (la que usamos por defecto):
+           No usar Bootstrap y aplicar estilos propios desde src/styles.css
+           (más limpio para una SPA y evita conflictos con el sistema de
+            componentes React).
+
+         OPCIÓN B (si quieres mantener Bootstrap):
+           Descomenta las siguientes dos líneas y también importa
+           "bootstrap/dist/css/bootstrap.min.css" en src/main.jsx.
+           Se recomienda instalar con: npm i bootstrap
+         ===================================================================== -->
+    <!--
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    -->
+
+    <!-- Los estilos propios se importan desde src/main.jsx
+         (Vite los empaqueta y los inyecta en <head> automáticamente).
+         NO pongas <link href="assets/css/styles.css"> aquí. -->
+  </head>
+
+  <body>
+    <!-- =====================================================================
+         PUNTO DE MONTAJE DE REACT
+         ---------------------------------------------------------------------
+         El atributo id="root" es OBLIGATORIO. Debe coincidir exactamente
+         con la línea de src/main.jsx:
+
+             ReactDOM.createRoot(document.getElementById("root"))
+
+         Si cambias el id aquí, cambia también el de main.jsx.
+         Si este div NO existe, la app se queda en blanco y verás en consola:
+             "Cannot read properties of null (reading 'render')"
+         ===================================================================== -->
+    <div id="root"></div>
+
+    <!-- =====================================================================
+         SCRIPT DE ENTRADA
+         ---------------------------------------------------------------------
+         type="module" → habilita import/export (ES Modules), necesario para
+         que Vite procese React, JSX y el hot-reload.
+         src="/src/main.jsx" → ruta absoluta desde la raíz del proyecto.
+
+         ⚠️ NO uses <script src="assets/js/main.js" defer> aquí.
+            Ese archivo era del proyecto vanilla de la Semana 6 y NO debe
+            ejecutarse en React (rompería la SPA al intentar manipular
+            elementos que ahora genera React).
+         ===================================================================== -->
+    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- =====================================================================
+         NOTA SOBRE BOOTSTRAP JS (opcional)
+         ---------------------------------------------------------------------
+         Si activaste Bootstrap CSS en OPCIÓN B y necesitas componentes
+         interactivos (dropdown, carrusel, modal), instala bootstrap con npm
+         y agrega el bundle ANTES del script de main.jsx:
+
+             <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+         O más limpio, impórtalo dentro de src/main.jsx:
+             import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
+         En este proyecto NO lo necesitamos porque el carrito, filtros y
+         búsqueda se manejan con estado de React (useState).
+         ===================================================================== -->
+  </body>
+</html>
