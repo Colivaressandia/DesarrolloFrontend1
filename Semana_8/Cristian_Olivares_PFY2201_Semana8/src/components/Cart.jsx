@@ -1,3 +1,19 @@
+/* =========================================================================
+   Cart — Contenedor lateral del carrito de compras
+   Semana 8 — Desarrollo Frontend I (PFY2201)
+   -------------------------------------------------------------------------
+   Props:
+     • items      (Array)    - Productos en el carrito con cantidades
+     • totalItems (Number)   - Suma total de unidades
+     • totalPrice (Number)   - Precio total (precioOferta × cantidad)
+     • onRemove   (Function) - Callback para eliminar un producto por ID
+     • onClear    (Function) - Callback para vaciar todo el carrito
+
+   Renderizado condicional:
+     • Si el carrito está vacío → mensaje "Tu carrito está vacío."
+     • Si tiene productos → lista + total + botón "Vaciar carrito"
+   ========================================================================= */
+
 import CartItem from "./CartItem";
 
 function Cart({ items, totalItems, totalPrice, onRemove, onClear }) {
