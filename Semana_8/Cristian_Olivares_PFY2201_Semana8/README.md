@@ -21,8 +21,8 @@ Esta entrega representa la **evolución del eCommerce construido en Semana 7**, 
 
 | Recurso | URL |
 |---|---|
-| 📦 Repositorio GitHub | https://github.com/Colivaressandia/DesarrolloFrontend1/tree/main/Semana_8 |
-| 🌐 Despliegue público (GitHub Pages) | https://colivaressandia.github.io/DesarrolloFrontend1/Semana_8/ |
+| 📦 Repositorio GitHub | [https://github.com/Colivaressandia/DesarrolloFrontend1/tree/main/Semana_8](https://github.com/Colivaressandia/DesarrolloFrontend1/tree/main/Semana_8/Cristian_Olivares_PFY2201_Semana8) |
+| 🌐 Despliegue público (GitHub Pages) | [https://colivaressandia.github.io/DesarrolloFrontend1/Semana_8/](https://colivaressandia.github.io/DesarrolloFrontend1/Semana_8/Cristian_Olivares_PFY2201_Semana8/dist/) |
 
 ---
 
