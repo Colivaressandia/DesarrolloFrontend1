@@ -1,12 +1,17 @@
-import ProductCard from "./ProductCard";
-
 /* =========================================================================
    ProductList — Lista de tarjetas de productos
-   Semana 8 — PFY2201
+   Semana 8 — Desarrollo Frontend I (PFY2201)
    -------------------------------------------------------------------------
-   Recibe el Set de IDs que están en el carrito (idsEnCarrito) para pasarlo
-   a cada card y que muestre el botón "En el carrito" cuando corresponda.
+   Props:
+     • productos    (Array)  - Lista de productos filtrados a mostrar
+     • onAdd        (Function) - Callback al hacer click en "Agregar al carrito"
+     • idsEnCarrito (Set)    - Set de IDs de productos ya en el carrito
+
+   Renderizado condicional:
+     • Si la lista está vacía (sin coincidencias) → mensaje informativo.
    ========================================================================= */
+
+import ProductCard from "./ProductCard";
 
 function ProductList({ productos, onAdd, idsEnCarrito }) {
   // 🔹 Renderizado condicional: sin resultados de búsqueda
