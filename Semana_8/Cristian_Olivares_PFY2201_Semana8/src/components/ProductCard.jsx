@@ -1,13 +1,19 @@
 /* =========================================================================
    ProductCard — Tarjeta individual de producto
-   Semana 8 — PFY2201
+   Semana 8 — Desarrollo Frontend I (PFY2201)
    -------------------------------------------------------------------------
-   Cambios respecto a Semana 7:
-     • Recibe prop `enCarrito` (boolean) desde ProductList.
-     • Renderizado condicional del botón con 3 estados posibles:
-         - Sin stock      → botón deshabilitado "Sin stock"
-         - En carrito     → botón cyan "✓ En el carrito"
-         - Disponible     → botón azul "Agregar al carrito"
+   Props:
+     • producto   (Object)   - Datos del producto (nombre, precio, imagen, etc.)
+     • onAdd      (Function) - Callback al hacer click en "Agregar al carrito"
+     • enCarrito  (Boolean)  - Indica si el producto ya está en el carrito
+
+   Renderizado condicional del botón (3 estados):
+     • Sin stock    → botón gris deshabilitado "Sin stock"
+     • En carrito   → botón cyan "✓ En el carrito"
+     • Disponible   → botón azul "Agregar al carrito"
+
+   Cálculo automático:
+     • Porcentaje de descuento entre precioNormal y precioOferta.
    ========================================================================= */
 
 function ProductCard({ producto, onAdd, enCarrito }) {
@@ -20,7 +26,9 @@ function ProductCard({ producto, onAdd, enCarrito }) {
     <article className="product-card">
       <div className="img-wrapper">
         <img src={producto.imagen} alt={producto.nombre} loading="lazy" />
+        {/* 🔹 Badge condicional: solo si el producto tiene badge definido */}
         {producto.badge && <span className="badge-top">{producto.badge}</span>}
+        {/* 🔹 Badge condicional: solo si hay descuento */}
         {descuento > 0 && <span className="badge-dcto">-{descuento}%</span>}
       </div>
 
