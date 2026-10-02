@@ -1,8 +1,15 @@
-# 🎮 Memory Card Games — Semana 8 (React + useEffect)
+# 🎮 Memory Card Games — Semana 8 (React + useEffect + Custom Hooks)
 
 Proyecto desarrollado para la **Actividad Sumativa de la Semana 8** de la asignatura **Desarrollo Frontend I (PFY2201)** de Duoc UC.
 
-Esta entrega representa la **evolución del eCommerce construido en Semana 7**, incorporando carga dinámica de datos con **`useEffect` + Fetch API**, gestión avanzada de estados con **`useState`**, y **renderizado condicional** para mejorar la interacción del usuario.
+Esta entrega representa la **evolución del eCommerce construido en Semana 7**, incorporando:
+
+- Carga dinámica de datos con **`useEffect` + Fetch API**
+- **Custom hooks** (`useProductos`, `useCarrito`) para separar responsabilidades
+- **Persistencia con localStorage** para el carrito
+- **Renderizado condicional** en 6 casos distintos
+- **Toasts** con `react-hot-toast` para feedback visual
+- **Botón "Reintentar"** para recuperación de errores
 
 ---
 
@@ -21,8 +28,8 @@ Esta entrega representa la **evolución del eCommerce construido en Semana 7**, 
 
 | Recurso | URL |
 |---|---|
-| 📦 Repositorio GitHub | [https://github.com/Colivaressandia/DesarrolloFrontend1/tree/main/Semana_8](https://github.com/Colivaressandia/DesarrolloFrontend1/tree/main/Semana_8/Cristian_Olivares_PFY2201_Semana8) |
-| 🌐 Despliegue público (GitHub Pages) | [https://colivaressandia.github.io/DesarrolloFrontend1/Semana_8/](https://colivaressandia.github.io/DesarrolloFrontend1/Semana_8/Cristian_Olivares_PFY2201_Semana8/dist/) |
+| 📦 Repositorio GitHub | https://github.com/Colivaressandia/DesarrolloFrontend1/tree/main/Semana_8/Cristian_Olivares_PFY2201_Semana8 |
+| 🌐 Despliegue público (GitHub Pages) | https://colivaressandia.github.io/DesarrolloFrontend1/Semana_8/Cristian_Olivares_PFY2201_Semana8/dist/ |
 
 ---
 
@@ -32,10 +39,13 @@ Esta entrega representa la **evolución del eCommerce construido en Semana 7**, 
 - **Vite 5** — Empaquetador y servidor de desarrollo
 - **JavaScript ES2022** — `async/await`, spread operator, destructuring
 - **Fetch API** — Carga asíncrona del catálogo desde JSON
-- **Hooks de React:** `useState`, `useEffect`, `useMemo`
+- **Hooks de React:** `useState`, `useEffect`, `useMemo`, `useCallback`
+- **Custom Hooks:** `useProductos`, `useCarrito`
+- **react-hot-toast** — Notificaciones (toasts)
+- **localStorage** — Persistencia del carrito
 - **CSS3** — Grid, flexbox, sticky, animaciones y media queries
 - **Git + GitHub** — Control de versiones
-- **GitHub Pages** (rama `gh-pages`) — Despliegue
+- **GitHub Pages** — Despliegue
 
 ---
 
@@ -44,9 +54,9 @@ Esta entrega representa la **evolución del eCommerce construido en Semana 7**, 
 ```
 Cristian_Olivares_PFY2201_Semana8/
 │
-├── public/                          # Archivos estáticos servidos tal cual
+├── public/
 │   ├── data/
-│   │   └── productos.json           # Catálogo cargado con Fetch API (NUEVO)
+│   │   └── productos.json           # Catálogo cargado con Fetch API
 │   ├── img/                         # Imágenes de productos y banners
 │   │   ├── switch2.png
 │   │   ├── ps5pro.png
@@ -61,29 +71,27 @@ Cristian_Olivares_PFY2201_Semana8/
 │   └── favicon-32x32.png
 │
 ├── src/
-│   ├── components/                  # Componentes funcionales reutilizables
+│   ├── components/
 │   │   ├── Navbar.jsx
 │   │   ├── Carrusel.jsx
-│   │   ├── ProductList.jsx          # Pasa `idsEnCarrito` a cada card
-│   │   ├── ProductCard.jsx          # Botón con renderizado condicional (3 estados)
+│   │   ├── ProductList.jsx
+│   │   ├── ProductCard.jsx
 │   │   ├── Cart.jsx
 │   │   ├── CartItem.jsx
 │   │   ├── Beneficios.jsx
 │   │   ├── Formulario.jsx
 │   │   └── Footer.jsx
 │   │
-│   ├── App.jsx                      # Componente raíz con useEffect + fetch
-│   ├── main.jsx                     # Punto de entrada React
-│   └── styles.css                   # Estilos globales
+│   ├── hooks/                       # Custom Hooks (Semana 8)
+│   │   ├── useProductos.js          # Fetch + estados de carga/error
+│   │   └── useCarrito.js            # Carrito + localStorage
+│   │
+│   ├── App.jsx                      # Orquestador
+│   ├── main.jsx
+│   └── styles.css
 │
-├── capturas/                        # Evidencias de la entrega
-│   ├── s8-01-carga-dinamica.png
-│   ├── s8-02-carrito-funcionando.png
-│   ├── s8-03-renderizado-condicional.png
-│   ├── s8-04-busqueda-categorias.png
-│   ├── s8-05-formulario-validacion.png
-│   └── s8-06-vista-movil.png
-│
+├── dist/                            # Build para GitHub Pages
+├── capturas/
 ├── index.html
 ├── package.json
 ├── vite.config.js
@@ -96,73 +104,51 @@ Cristian_Olivares_PFY2201_Semana8/
 
 ## ✨ Funcionalidades implementadas
 
-### 1. Carga dinámica de productos con Fetch API y useEffect
-Los productos se cargan de forma asíncrona desde `public/data/productos.json` mediante **`useEffect` + `fetch`**. El estado `cargando` muestra un mensaje mientras se obtienen los datos, y el estado `error` maneja excepciones de red o HTTP.
+### 1. Carga dinámica con `useEffect` + Fetch API
+Los productos se cargan asíncronamente desde `public/data/productos.json`. El custom hook `useProductos` encapsula el fetch, el manejo de errores (HTTP y red) y expone la función `recargar` para reintentar.
 
-```jsx
-useEffect(() => {
-  const cargarProductos = async () => {
-    try {
-      setCargando(true);
-      const url = `${import.meta.env.BASE_URL}data/productos.json`;
-      const respuesta = await fetch(url);
-      if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
-      const data = await respuesta.json();
-      setProductos(data.map(...));
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setCargando(false);
-    }
-  };
-  cargarProductos();
-}, []);
-```
+### 2. Custom Hooks (Semana 8)
+- **`useProductos`** → encapsula fetch, estados de carga/error y reintentos.
+- **`useCarrito`** → encapsula el carrito, operaciones y persistencia.
 
-### 2. Gestión de estados con useState
-La aplicación gestiona **8 estados** diferentes con `useState`:
+### 3. Persistencia con localStorage
+El carrito se guarda automáticamente en `localStorage`. Al recargar la página o cerrarla y volver a abrirla, los productos siguen ahí.
 
-| Estado | Tipo | Propósito |
+### 4. Gestión de estados con `useState`
+8 estados en total:
+- `productos`, `cargando`, `error` (en `useProductos`)
+- `cart` (en `useCarrito`)
+- `busqueda`, `categoria` (en `App`)
+- `nombre`, `email`, `mensaje` (en `Formulario`)
+
+### 5. Renderizado condicional en 6 casos
+
+| Caso | Condición | Resultado |
 |---|---|---|
-| `productos` | Array | Catálogo cargado desde JSON |
-| `cargando` | Boolean | Mostrar mensaje mientras carga |
-| `error` | String \| null | Almacenar error de fetch |
-| `cart` | Array | Productos del carrito |
-| `busqueda` | String | Término de búsqueda |
-| `categoria` | String | Categoría seleccionada |
-| `nombre` (Formulario) | String | Campo del formulario |
-| `email` (Formulario) | String | Campo del formulario |
+| Carga | `cargando === true` | "⏳ Cargando productos..." |
+| Error | `error !== null` | Mensaje rojo + botón "🔄 Reintentar" |
+| Carrito vacío | `items.length === 0` | "Tu carrito está vacío." |
+| Sin stock | `stock === 0` | Botón deshabilitado "Sin stock" |
+| En carrito | `enCarrito === true` | Botón cyan "✓ En el carrito" |
+| Sin resultados | `productosFiltrados.length === 0` | "🔍 No encontramos productos..." |
 
-### 3. Renderizado condicional en 5 lugares
+### 6. Botón "Reintentar"
+Si el fetch falla, aparece un botón que vuelve a ejecutar la carga sin recargar la página. Demuestra manejo robusto de errores.
 
-| Lugar | Condición | Resultado |
-|---|---|---|
-| **Carga** | `cargando === true` | Mensaje "⏳ Cargando productos..." con animación |
-| **Error** | `error !== null` | Mensaje rojo con detalle del error |
-| **Carrito** | `items.length === 0` | "Tu carrito está vacío." |
-| **Stock** | `producto.stock === 0` | Botón gris deshabilitado "Sin stock" |
-| **Botón producto** | `enCarrito === true` | Botón cyan "✓ En el carrito" |
-| **Sin resultados** | `productosFiltrados.length === 0` | "🔍 No encontramos productos..." |
+### 7. Notificaciones con `react-hot-toast`
+- **Agregar al carrito** → `✅ [Producto] agregado al carrito`
+- **Eliminar producto** → `🗑️ [Producto] eliminado del carrito`
+- **Vaciar carrito** → `🧹 Carrito vaciado`
 
-### 4. Botón dinámico del producto (renderizado condicional)
-El botón cambia de **estado visual y texto** según el estado del producto:
+### 8. Búsqueda y filtros combinados
+`useMemo` combina el término de búsqueda **y** la categoría seleccionada.
 
-- 🟦 **"Agregar al carrito"** → producto disponible, no está en el carrito
-- 🟩 **"✓ En el carrito"** → producto ya agregado (estilo cyan sólido)
-- ⬛ **"Sin stock"** → producto con `stock === 0` (deshabilitado)
-
-### 5. Carrito de compras completo
-- **Agregar productos**: si ya existe, incrementa cantidad; si no, lo agrega.
-- **Eliminar individualmente** con botón ✕.
-- **Vaciar carrito** completo.
-- **Contador** en el navbar actualizado reactivamente.
-- **Total** calculado con `useMemo`.
-
-### 6. Búsqueda y filtros combinados
-`useMemo` combina la búsqueda por término **y** el filtro por categoría en un solo array filtrado. Cuando un producto entra al carrito, su botón cambia automáticamente a "✓ En el carrito" gracias a un `Set` de IDs memoizado.
-
-### 7. Renderizado automático por React
-No hay manipulación manual del DOM. Todos los cambios de estado se reflejan automáticamente en la UI.
+### 9. Carrito de compras
+- Agregar con acumulación de cantidades.
+- Eliminar individualmente con ✕.
+- Vaciar completamente.
+- Contador reactivo en el navbar.
+- Total calculado con `useMemo`.
 
 ---
 
@@ -170,54 +156,58 @@ No hay manipulación manual del DOM. Todos los cambios de estado se reflejan aut
 
 | Aspecto | Semana 7 | Semana 8 |
 |---|---|---|
-| **Datos de productos** | `import { productos }` (estático) | `fetch()` dentro de `useEffect` (dinámico) |
-| **Ubicación de datos** | `src/data/productos.js` | `public/data/productos.json` |
-| **Carga asíncrona** | ❌ No existía | ✅ Con estados `cargando` y `error` |
-| **Botón producto** | 2 estados (Agregar / Sin stock) | **3 estados** (+ "✓ En el carrito") |
-| **Manejo de errores** | ❌ No existía | ✅ `try/catch` + renderizado condicional |
-| **Estado del carrito** | ✅ Ya existía | ✅ Optimizado con `Set` de IDs |
-| **Renderizado condicional** | 4 casos | **6 casos** (carga, error, carrito, stock, botón, sin resultados) |
-| **`useEffect`** | Solo en Carrusel | ✅ En App para fetch |
+| **Datos** | `import` estático de `productos.js` | `fetch` desde `public/data/productos.json` |
+| **Carga asíncrona** | ❌ No existía | ✅ `useEffect` + estados de carga/error |
+| **Custom Hooks** | ❌ No existían | ✅ `useProductos` y `useCarrito` |
+| **Persistencia** | ❌ Carrito se perdía al recargar | ✅ `localStorage` |
+| **Botón producto** | 2 estados | **3 estados** (+ "✓ En el carrito") |
+| **Feedback visual** | Sin notificaciones | ✅ Toasts |
+| **Manejo de errores** | ❌ No existía | ✅ `try/catch` + botón "Reintentar" |
+| **Renderizado condicional** | 4 casos | **6 casos** |
 
 ---
 
 ## 📋 Cumplimiento de la pauta Semana 8
 
-| Criterio de evaluación | Pts | Estado | Dónde se cumple |
+| Criterio | Pts | Estado | Dónde se cumple |
 |---|---|---|---|
-| **1. useState** (catálogo, carrito, interactivo) | 25 | ✅ | 8 estados en `App.jsx` + Formulario |
-| **2. useEffect** (carga dinámica) | 20 | ✅ | `useEffect` con fetch a `productos.json` |
-| **3. Renderizado condicional** | 20 | ✅ | 6 casos: carga, error, carrito vacío, stock, botón dinámico, sin resultados |
-| **4. Estructura y buenas prácticas** | 15 | ✅ | 9 componentes, comentarios JSDoc, sin duplicación |
-| **5. GitHub + gh-pages** | 20 | ✅ | Repo público + despliegue funcionando |
+| **1. useState** (catálogo, carrito, interactivo) | 25 | ✅ | 8 estados distribuidos en hooks y componentes |
+| **2. useEffect** (carga dinámica) | 20 | ✅ | `useProductos` con fetch + `cargar` recargable |
+| **3. Renderizado condicional** | 20 | ✅ | 6 casos + toasts + botón "Reintentar" |
+| **4. Estructura y buenas prácticas** | 15 | ✅ | Custom hooks + JSDoc + sin duplicación |
+| **5. GitHub + gh-pages** | 20 | ✅ | Repo público + deploy funcionando |
 
 ---
 
 ## 📸 Capturas de pantalla
 
 ### 01 — Carga dinámica con Fetch API
-`useEffect` ejecutando el `fetch` al JSON. En DevTools se observa `productos.json` con status **200** e **Initiator: App.jsx:45** (el propio `useEffect`).
+`useEffect` ejecutando el `fetch` al JSON. En DevTools se observa `productos.json` con status **200** e **Initiator: App.jsx** (el propio `useEffect`).
 ![Carga dinámica](capturas/s8-01-carga-dinamica.png)
 
 ### 02 — Carrito funcionando
 Productos agregados con cantidades acumuladas, subtotales y total calculado.
 ![Carrito](capturas/s8-02-carrito-funcionando.png)
 
-### 03 — Renderizado condicional en acción
-Los tres estados del botón visibles simultáneamente: **"✓ En el carrito"** (Switch 2), **"Agregar al carrito"** (PS5, Xbox, Teclado, Mouse) y **"Sin stock"** (Audífonos 7.1).
+### 03 — Renderizado condicional
+Los tres estados del botón: **"✓ En el carrito"**, **"Agregar al carrito"** y **"Sin stock"**.
 ![Renderizado condicional](capturas/s8-03-renderizado-condicional.png)
 
-### 04 — Búsqueda y filtro por categoría
-Búsqueda en tiempo real: escribiendo "consola" se filtran las 3 consolas del catálogo.
+### 04 — Búsqueda y filtros
+Búsqueda en tiempo real: escribiendo "consola" se filtran las 3 consolas.
 ![Búsqueda](capturas/s8-04-busqueda-categorias.png)
 
 ### 05 — Validación del formulario
-Renderizado condicional mostrando el mensaje de advertencia cuando el nombre es muy corto.
+Mensaje de advertencia cuando el nombre es muy corto.
 ![Validación](capturas/s8-05-formulario-validacion.png)
 
 ### 06 — Vista móvil responsiva
 Diseño adaptado a dispositivos móviles (Samsung Galaxy A55 - 360×800).
 ![Vista móvil](capturas/s8-06-vista-movil.png)
+
+### 07 — Notificación toast al agregar al carrito
+Feedback visual inmediato mediante `react-hot-toast` cuando el usuario agrega un producto.
+![Toast](capturas/s8-07-toast.png)
 
 ---
 
@@ -239,7 +229,6 @@ npm install
 
 # 3. Levantar el servidor de desarrollo
 npm run dev
-# → http://localhost:5173/DesarrolloFrontend1/Semana_8/
 ```
 
 ### Otros comandos
@@ -247,7 +236,6 @@ npm run dev
 ```bash
 npm run build      # Genera el build de producción en /dist
 npm run preview    # Sirve el build localmente
-npm run deploy     # Despliega a GitHub Pages (rama gh-pages)
 ```
 
 ---
@@ -256,22 +244,22 @@ npm run deploy     # Despliega a GitHub Pages (rama gh-pages)
 
 | Prueba | Resultado |
 |---|---|
-| Carga de productos desde JSON con `useEffect` | ✅ |
+| Carga de productos con `useEffect` | ✅ |
 | Estado "Cargando productos..." visible | ✅ |
-| Manejo de error cuando JSON no existe | ✅ |
+| Botón "Reintentar" tras error | ✅ |
 | Agregar producto al carrito | ✅ |
+| Toast al agregar | ✅ |
 | Botón cambia a "✓ En el carrito" | ✅ |
 | Acumular cantidad al repetir producto | ✅ |
-| Eliminar producto individual | ✅ |
-| Vaciar carrito | ✅ |
-| Contador del navbar actualizado | ✅ |
-| Total calculado correctamente | ✅ |
+| Toast al eliminar | ✅ |
+| Persistencia del carrito con localStorage | ✅ |
+| Toast al vaciar carrito | ✅ |
 | Búsqueda en tiempo real | ✅ |
 | Filtro por categoría | ✅ |
 | Renderizado "Sin stock" | ✅ |
-| Validación de formulario (warning) | ✅ |
-| Validación de formulario (éxito) | ✅ |
+| Validación de formulario | ✅ |
 | Vista responsive (móvil) | ✅ |
+| Deploy en GitHub Pages | ✅ |
 
 **Navegadores probados:** Chrome 120+, Edge 120+, Firefox 121+ sin errores en consola.
 
@@ -279,34 +267,19 @@ npm run deploy     # Despliega a GitHub Pages (rama gh-pages)
 
 ## 🎯 Mejoras aplicadas respecto a la Semana 7
 
-- ✅ **Migración del catálogo** de `src/data/productos.js` a `public/data/productos.json`
-- ✅ **Carga asíncrona** con `useEffect` + `fetch` + `async/await`
-- ✅ **Estados de carga y error** con renderizado condicional
-- ✅ **Manejo de errores diferenciado**: HTTP vs conexión
-- ✅ **Botón dinámico del producto** con 3 estados visuales
-- ✅ **Set de IDs en el carrito** (`idsEnCarrito`) para consulta O(1)
-- ✅ **Simulación de latencia** de red (800 ms) para evidenciar el estado "Cargando..."
+- ✅ **Custom hook `useProductos`** — encapsula fetch + estados de carga/error
+- ✅ **Custom hook `useCarrito`** — encapsula estado + operaciones + persistencia
+- ✅ **Persistencia con localStorage** — el carrito sobrevive al recargar
+- ✅ **Toasts con react-hot-toast** — feedback visual inmediato
+- ✅ **Botón "Reintentar"** — recuperación de errores de red
+- ✅ **3 estados del botón** — Agregar / En el carrito / Sin stock
+- ✅ **JSDoc en todos los componentes** — documentación profesional
 
 ---
 
 ## 📄 Licencia
 
 Proyecto desarrollado con fines académicos para la asignatura **Desarrollo Frontend I (PFY2201)** de Duoc UC. Todos los recursos gráficos son de uso libre o de elaboración propia.
-
----
-
-## 📝 Comentarios finales
-
-Esta entrega representa la **evolución del proyecto Memory Card Games** desde la versión estática en React (Semana 7) hacia una aplicación con **carga de datos asíncrona** y **gestión avanzada de estados**.
-
-Se aplicaron buenas prácticas de:
-
-- **Asincronía**: `async/await` + `try/catch` para manejar el fetch.
-- **Renderizado condicional**: 6 casos distintos según el estado.
-- **Rendimiento**: `useMemo` para evitar recálculos y `Set` para consultas O(1).
-- **UX**: feedback visual en cada acción (cargando, error, "en el carrito").
-- **Modularidad**: componentes con responsabilidades únicas.
-- **Compatibilidad**: rutas adaptadas a GitHub Pages con `import.meta.env.BASE_URL`.
 
 ---
 
