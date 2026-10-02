@@ -12,7 +12,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/DesarrolloFrontend1/Semana_8/Cristian_Olivares_PFY2201_Semana8/",
+  base: "/DesarrolloFrontend1/Semana_8/Cristian_Olivares_PFY2201_Semana8/dist/",
   server: {
     port: 5173,
     open: true,
