@@ -15,7 +15,7 @@ Esta entrega representa la **evolución del eCommerce construido en Semana 7**, 
 
 ## 👤 Autor
 
-- **Nombre:** Cristián Olivares Sandia
+- **Nombre:** Cristian Olivares Sandia
 - **Asignatura:** Desarrollo Frontend I (PFY2201)
 - **Semana:** 8 — Mejorando funcionalidades clave en el eCommerce con React
 - **Carrera:** Analista Programador Computacional
