@@ -28,9 +28,6 @@ export function useProductos() {
       setCargando(true);
       setError(null);
 
-      // Simulamos latencia de red para evidenciar el estado "Cargando..."
-      await new Promise((resolve) => setTimeout(resolve, 800));
-
       const url = `${import.meta.env.BASE_URL}data/productos.json`;
       const respuesta = await fetch(url);
 

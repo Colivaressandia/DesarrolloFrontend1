@@ -53,7 +53,10 @@ function Formulario() {
             <input
               type="text"
               value={nombre}
-              onChange={(e) => setNombre(e.target.value)}
+              onChange={(e) => {
+                setNombre(e.target.value);
+                if (mensaje) setMensaje(null);
+              }}
               placeholder="Tu nombre"
             />
           </label>
@@ -63,7 +66,10 @@ function Formulario() {
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                if (mensaje) setMensaje(null);
+              }}
               placeholder="nombre@correo.com"
             />
           </label>
