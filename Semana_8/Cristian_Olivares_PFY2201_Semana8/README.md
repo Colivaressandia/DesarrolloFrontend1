@@ -183,31 +183,31 @@ Si el fetch falla, aparece un botón que vuelve a ejecutar la carga sin recargar
 
 ### 01 — Carga dinámica con Fetch API
 `useEffect` ejecutando el `fetch` al JSON. En DevTools se observa `productos.json` con status **200** e **Initiator: App.jsx** (el propio `useEffect`).
-![Carga dinámica](capturas/s8-01-carga-dinamica.png)
+![Carga dinámica](capturas/01-carga-dinamica.png)
 
 ### 02 — Carrito funcionando
 Productos agregados con cantidades acumuladas, subtotales y total calculado.
-![Carrito](capturas/s8-02-carrito-funcionando.png)
+![Carrito](capturas/02-carrito-funcionando.png)
 
 ### 03 — Renderizado condicional
 Los tres estados del botón: **"✓ En el carrito"**, **"Agregar al carrito"** y **"Sin stock"**.
-![Renderizado condicional](capturas/s8-03-renderizado-condicional.png)
+![Renderizado condicional](capturas/03-renderizado-condicional.png)
 
 ### 04 — Búsqueda y filtros
 Búsqueda en tiempo real: escribiendo "consola" se filtran las 3 consolas.
-![Búsqueda](capturas/s8-04-busqueda-categorias.png)
+![Búsqueda](capturas/04-busqueda-categorias.png)
 
 ### 05 — Validación del formulario
 Mensaje de advertencia cuando el nombre es muy corto.
-![Validación](capturas/s8-05-formulario-validacion.png)
+![Validación](capturas/05-formulario-validacion.png)
 
 ### 06 — Vista móvil responsiva
 Diseño adaptado a dispositivos móviles (Samsung Galaxy A55 - 360×800).
-![Vista móvil](capturas/s8-06-vista-movil.png)
+![Vista móvil](capturas/06-vista-movil.png)
 
 ### 07 — Notificación toast al agregar al carrito
 Feedback visual inmediato mediante `react-hot-toast` cuando el usuario agrega un producto.
-![Toast](capturas/s8-07-toast.png)
+![Toast](capturas/09-toast-agregar.png)
 
 ---
 
