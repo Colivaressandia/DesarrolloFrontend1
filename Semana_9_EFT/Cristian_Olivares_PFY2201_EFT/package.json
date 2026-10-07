@@ -1,0 +1,28 @@
+{
+  "name": "cristian-olivares-pfy2201-eft-s9",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Memory Card Games — tienda gamer de consolas y accesorios para la EFT de PFY2201.",
+  "author": "Cristian Olivares Sandia",
+  "license": "MIT",
+  "homepage": "https://colivaressandia.github.io/DesarrolloFrontend1/Semana_9_EFT/",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist -e Semana_9_EFT"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.6.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "gh-pages": "^6.1.1",
+    "vite": "^5.4.0"
+  }
+}
