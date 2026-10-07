@@ -110,22 +110,21 @@ debe incorporarse al repositorio para que el docente pueda revisarlo.
 
 ## Evidencias
 
-Las nueve capturas están numeradas correlativamente y mantienen sus nombres
-originales dentro de `capturas/`:
+Las evidencias corresponden a la versión EFT actual y se tomaron en escritorio
+y móvil:
 
-1. [Carga dinámica del catálogo](capturas/01-carga-dinamica.png) — en Network,
-   el iniciador del `fetch` corresponde a `useProductos.js`.
-2. [Carrito funcionando](capturas/02-carrito-funcionando.png).
-3. [Renderizado condicional](capturas/03-renderizado-condicional.png).
-4. [Búsqueda y categorías](capturas/04-busqueda-categorias.png).
-5. [Validación del formulario](capturas/05-formulario-validacion.png).
-6. [Vista móvil](capturas/06-vista-movil.png).
-7. [Sitio publicado](capturas/07-deploy-online.png).
-8. [Carrito en el sitio publicado](capturas/08-deploy-carrito.png).
-9. [Notificación al agregar un producto](capturas/09-toast-agregar.png).
+1. [Catálogo cargado con las fotografías originales](capturas/01-carga-dinamica.png).
+2. [Carrito con dos unidades y total actualizado](capturas/02-carrito-funcionando.png).
+3. [Estados condicionales: agregado al carrito y sin stock](capturas/03-renderizado-condicional.png).
+4. [Búsqueda combinada con filtro de categoría](capturas/04-busqueda-categorias.png).
+5. [Validación individual de los campos del formulario](capturas/05-formulario-validacion.png).
+6. [Diseño adaptable en vista móvil](capturas/06-vista-movil.png).
+7. [Formulario para administrar el catálogo](capturas/07-gestion-catalogo.png).
+8. [Aviso cuando el navegador bloquea localStorage](capturas/08-error-localstorage.png).
+9. [Notificación al agregar un producto al carrito](capturas/09-toast-agregar.png).
 
-Las capturas 07 y 08 documentan la publicación anterior del proyecto. Después
-de publicar esta versión EFT, reemplázalas por capturas de su URL final.
+No se incluyen capturas de una publicación antigua como evidencia de esta EFT.
+Cuando se publique esta versión, conviene añadir una captura de la URL final.
 
 ## Pruebas manuales recomendadas
 
