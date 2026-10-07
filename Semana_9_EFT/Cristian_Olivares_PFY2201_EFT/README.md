@@ -122,9 +122,7 @@ y móvil:
 7. [Formulario para administrar el catálogo](capturas/07-gestion-catalogo.png).
 8. [Aviso cuando el navegador bloquea localStorage](capturas/08-error-localstorage.png).
 9. [Notificación al agregar un producto al carrito](capturas/09-toast-agregar.png).
-
-No se incluyen capturas de una publicación antigua como evidencia de esta EFT.
-Cuando se publique esta versión, conviene añadir una captura de la URL final.
+10. [Versión publicada en GitHub Pages](capturas/10-publicacion-online.png).
 
 ## Pruebas manuales recomendadas
 
