@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Card Games - Bootstrap 5 Edition</title>
+
+    <!-- Bootstrap 5.3 CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Estilos complementarios para reforzar identidad visual -->
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #f8fafc;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        .carousel-item img {
+            height: 400px;
+            object-fit: cover;
+        }
+        .card {
+            background-color: #151f32;
+            border: 1px solid #334155;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #0dcaf0;
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: contain;
+            background-color: transparent;
+            padding: 15px;
+        }
+        /* Accesibilidad en teclado */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid #0dcaf0;
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =========================================================================
+         1. BARRA DE NAVEGACIÓN (NAVBAR RESPONSIVA CON COLAPSO)
+         ========================================================================= -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-secondary shadow-sm" aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-info" href="#inicio">🎮 MCG</a>
+                <!-- Botón hamburguesa para móviles (< 992px) -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#inicio">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#carrusel-seccion">Novedades</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#productos">Catálogo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- =========================================================================
+         2. CARRUSEL DE IMÁGENES (INTERVALO AUTOMÁTICO DE 3 SEGUNDOS)
+         ========================================================================= -->
+    <section id="carrusel-seccion" class="container my-4" aria-label="Banners promocionales">
+        <div id="carouselBanners" class="carousel slide rounded overflow-hidden shadow" data-bs-ride="carousel">
+            <!-- Indicadores -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselBanners" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Diapositiva 1"></button>
+                <button type="button" data-bs-target="#carouselBanners" data-bs-slide-to="1" aria-label="Diapositiva 2"></button>
+                <button type="button" data-bs-target="#carouselBanners" data-bs-slide-to="2" aria-label="Diapositiva 3"></button>
+            </div>
+
+            <!-- Diapositivas con data-bs-interval de 3000 ms (3 segundos) usando rutas locales -->
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <img src="img/banner1.jpg" class="d-block w-100" alt="Consolas y accesorios retro y modernos">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-3">
+                        <h2 class="h4 text-info">Lanzamientos de Temporada</h2>
+                        <p class="mb-0">Reserva las consolas y ediciones de colección más esperadas del año.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="img/banner2.jpg" class="d-block w-100" alt="Setup gamer con teclado mecánico RGB">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-3">
+                        <h2 class="h4 text-info">Zona Competitiva</h2>
+                        <p class="mb-0">Mandos pro, periféricos de alto rendimiento y audio envolvente.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="img/banner3.jpg" class="d-block w-100" alt="Arcade y sala de entretenimiento gaming">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-3">
+                        <h2 class="h4 text-info">Despacho en 48 Horas</h2>
+                        <p class="mb-0">Envíos rápidos y seguros a todo el país con garantía de satisfacción.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controles -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselBanners" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselBanners" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         3. SECCIÓN PRINCIPAL: SISTEMA GRID Y TARJETAS (CARDS)
+         ========================================================================= -->
+    <main class="container my-5" id="productos">
+        <header class="text-center mb-5" id="inicio">
+            <h1 class="text-info fw-bold">Catálogo Destacado</h1>
+            <p class="text-secondary">Estructurado mediante el sistema Grid responsivo y componentes Card de Bootstrap 5.</p>
+        </header>
+
+        <!-- Cuadrícula: 1 col (< 768px), 2 col en tablets (≥ 768px / md), 3 col en escritorio (≥ 992px / lg) -->
+        <div class="row g-4">
+            <!-- Tarjeta 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card h-100 text-light shadow-sm">
+                    <img src="img/switch2.png" class="card-img-top" alt="Nintendo Switch 2">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h3 class="card-title h5 mb-0">Nintendo Switch 2</h3>
+                            <span class="badge bg-warning text-dark">Oferta</span>
+                        </div>
+                        <p class="card-text text-secondary flex-grow-1">Pantalla OLED optimizada, arquitectura gráfica renovada y retrocompatibilidad total.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
+                            <span class="fs-5 fw-bold text-success">$449.990</span>
+                            <button type="button" class="btn btn-outline-info btn-sm">Comprar</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card h-100 text-light shadow-sm border-info">
+                    <img src="img/ps5pro.png" class="card-img-top" alt="PlayStation 5 Pro">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h3 class="card-title h5 mb-0">PlayStation 5 Pro</h3>
+                            <span class="badge bg-info text-dark">Más Vendido</span>
+                        </div>
+                        <p class="card-text text-secondary flex-grow-1">Trazado de rayos avanzado, renderizado 4K ultra fluido y almacenamiento de 2TB.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
+                            <span class="fs-5 fw-bold text-success">$899.990</span>
+                            <button type="button" class="btn btn-info text-dark btn-sm fw-bold">Comprar</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card h-100 text-light shadow-sm">
+                    <img src="img/xbox.png" class="card-img-top" alt="Xbox Series X">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h3 class="card-title h5 mb-0">Xbox Series X 2TB</h3>
+                            <span class="badge bg-primary">Nuevo</span>
+                        </div>
+                        <p class="card-text text-secondary flex-grow-1">Edición Galaxy Black con almacenamiento masivo, velocidad Quick Resume y resolución 4K nativa.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
+                            <span class="fs-5 fw-bold text-success">$799.990</span>
+                            <button type="button" class="btn btn-outline-info btn-sm">Comprar</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- =========================================================================
+         4. SECCIÓN INFORMATIVA / BENEFICIOS
+         ========================================================================= -->
+    <section class="container my-5" id="servicios">
+        <div class="row g-4 text-center">
+            <div class="col-12 col-md-4">
+                <div class="p-4 rounded bg-dark border border-secondary h-100">
+                    <div class="fs-1 mb-2">🚀</div>
+                    <h2 class="h5 text-info">Despacho Inmediato</h2>
+                    <p class="text-secondary small mb-0">Entregas dentro de 24 a 48 horas en todo el país.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="p-4 rounded bg-dark border border-secondary h-100">
+                    <div class="fs-1 mb-2">🛡️</div>
+                    <h2 class="h5 text-info">Garantía Asegurada</h2>
+                    <p class="text-secondary small mb-0">Cobertura de 6 meses y servicio técnico especializado.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="p-4 rounded bg-dark border border-secondary h-100">
+                    <div class="fs-1 mb-2">💳</div>
+                    <h2 class="h5 text-info">Medios de Pago</h2>
+                    <p class="text-secondary small mb-0">Hasta 12 cuotas sin interés mediante WebPay Plus.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         5. PIE DE PÁGINA (FOOTER)
+         ========================================================================= -->
+    <footer class="bg-dark border-top border-secondary py-4 mt-5 text-center text-secondary" id="contacto">
+        <div class="container">
+            <p class="text-info fw-bold mb-1">Memory Card Games - Chile</p>
+            <p class="small mb-2">Avenida Pedro Montt 1234, Valparaíso | Contacto: soporte@memorycardgames.cl</p>
+            <hr class="border-secondary my-3">
+            <p class="small mb-0">Copyright &copy; 2026 Memory Card Games. Actividad Formativa Semana 4 - Desarrollo Frontend I (PFY2201).</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle con Popper JS (Control de colapso y transiciones del carrusel) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

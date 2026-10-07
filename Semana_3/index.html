@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Card Games - Tienda Oficial</title>
+    <link rel="stylesheet" href="Cristian_Olivares_PFY2201_CSS_Semana3.css">
+</head>
+<body>
+
+    <!-- Encabezado principal -->
+    <header id="inicio">
+        <h1>Memory Card Games</h1>
+        <p>Tu tienda especialista en videojuegos, consolas y accesorios de última generación.</p>
+    </header>
+
+    <!-- Barra de navegación (Flexbox) -->
+    <nav class="navbar" aria-label="Navegación principal">
+        <div class="nav-container">
+            <span class="nav-logo">🎮 MCG</span>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal estructurado con CSS Grid -->
+    <main class="main-layout">
+        
+        <!-- Sección de Catálogo de Productos (CSS Grid) -->
+        <section id="catalogo" class="catalog-section">
+            <h2>Catálogo Destacado</h2>
+            <p class="section-desc">Encuentra las mejores plataformas y promociones de la semana.</p>
+
+            <div class="product-grid">
+                <!-- Producto 1 -->
+                <article class="product-card">
+                    <div class="card-badge">Oferta</div>
+                    <img src="https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/9df78eab33525d08d6e5fb8d27136e95/2/6/267262.jpg" alt="Consola Nintendo Switch 2" loading="lazy">
+                    <div class="card-content">
+                        <h3>Nintendo Switch 2</h3>
+                        <p>Gráficos optimizados en alta definición y mayor autonomía de batería para juegos portátiles.</p>
+                        <span class="price">$449.990</span>
+                        <button type="button" class="btn-card">Agregar al Carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="product-card">
+                    <div class="card-badge popular">Más Vendido</div>
+                    <img src="https://media.direct.playstation.com/is/image/psdglobal/ps5-pro-Hero-1-angled?$Background_Large$" alt="Consola PlayStation 5 Pro 2TB" loading="lazy">
+                    <div class="card-content">
+                        <h3>PlayStation 5 Pro 2TB</h3>
+                        <p>Rendimiento 4K a 60/120 fps con trazado de rayos avanzado y almacenamiento ultrarrápido.</p>
+                        <span class="price">$899.990</span>
+                        <button type="button" class="btn-card">Agregar al Carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 3 -->
+                <article class="product-card">
+                    <div class="card-badge">Lanzamiento</div>
+                    <img src="https://cms-assets.xboxservices.com/assets/37/d2/37d211d0-5c2c-42c6-bb71-ca7492c5e088.png?n=642227_Hero-Gallery-0_C1_857x676.png" alt="Consola Xbox Series X 2TB" loading="lazy">
+                    <div class="card-content">
+                        <h3>Xbox Series X 2TB</h3>
+                        <p>Máxima potencia de procesamiento con retrocompatibilidad total y resolución nativa en 4K.</p>
+                        <span class="price">$799.990</span>
+                        <button type="button" class="btn-card">Agregar al Carrito</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sección Informativa / Beneficios (CSS Grid) -->
+        <section id="beneficios" class="features-section">
+            <h2>¿Por qué elegir Memory Card Games?</h2>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <span class="feature-icon">🚀</span>
+                    <h3>Envíos Express</h3>
+                    <p>Despachos a todo Chile en menos de 48 horas hábiles.</p>
+                </div>
+                <div class="feature-box">
+                    <span class="feature-icon">🛡️</span>
+                    <h3>Garantía Total</h3>
+                    <p>6 meses de cobertura directa y soporte técnico especializado.</p>
+                </div>
+                <div class="feature-box">
+                    <span class="feature-icon">💳</span>
+                    <h3>Pagos Seguros</h3>
+                    <p>Múltiples opciones de pago con hasta 12 cuotas sin interés.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enlace a comunidad -->
+        <aside class="community-banner">
+            <p>¿Buscas torneos y novedades semanales? Únete a nuestra <a href="https://instagram.com/MemoryCardGames" target="_blank" rel="noopener noreferrer">comunidad en Instagram</a>.</p>
+        </aside>
+
+    </main>
+
+    <!-- Pie de página (Flexbox) -->
+    <footer id="contacto">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Contacto e Información</h3>
+                <p>Dirección: Avenida Pedro Montt 1234, Valparaíso, Chile</p>
+                <p>Fono: +56 9 4875 1523</p>
+                <p>Email: soporte@memorycardgames.cl</p>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">Copyright © 2026 Memory Card Games. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
