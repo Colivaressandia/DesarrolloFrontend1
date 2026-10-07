@@ -8,9 +8,9 @@ JavaScript, Bootstrap 5 y componentes React.
 
 - Repositorio del curso: <https://github.com/Colivaressandia/DesarrolloFrontend1>
 - Carpeta de entrega en el repositorio:
-  <https://github.com/Colivaressandia/DesarrolloFrontend1/tree/main/Semana_9_EFT>
+  <https://github.com/Colivaressandia/DesarrolloFrontend1/tree/main/Semana_9_EFT/Cristian_Olivares_PFY2201_EFT>
 - URL de GitHub Pages al publicar esta carpeta:
-  <https://colivaressandia.github.io/DesarrolloFrontend1/Semana_9_EFT/>
+  <https://colivaressandia.github.io/DesarrolloFrontend1/Semana_9_EFT/Cristian_Olivares_PFY2201_EFT/>
 
 ## Funcionalidades
 
@@ -103,7 +103,7 @@ archivos ZIP generados.
 ## Publicación en GitHub Pages
 
 Desde esta carpeta, `npm run deploy` compila el proyecto y publica `dist/` en
-la ruta `Semana_9_EFT` de la rama `gh-pages`.
+la ruta `Semana_9_EFT/Cristian_Olivares_PFY2201_EFT` de la rama `gh-pages`.
 En la configuración **Settings → Pages** del repositorio, selecciona esa rama
 y la raíz (`/`). El script no sube cambios a `main`: el código fuente también
 debe incorporarse al repositorio para que el docente pueda revisarlo.
